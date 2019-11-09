@@ -206,7 +206,7 @@ public class AirMapUrlTile extends AirMapFeature {
     TileOverlayOptions options = new TileOverlayOptions();
     options.zIndex(zIndex);
     this.tileProvider = new Wrapper(this.urlTemplate);
-    if (requestProperties.toHashMap().isEmpty()) {
+    if (requestProperties == null) {
       Wrapper.AIRMapUrlTileProvider airMapUrlTileProvider = this.tileProvider.new AIRMapUrlTileProvider(256, 256);
       options.tileProvider(airMapUrlTileProvider);
     } else {
