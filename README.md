@@ -1,6 +1,11 @@
 # react-native-maps [![npm version](https://img.shields.io/npm/v/react-native-maps.svg?style=flat)](https://www.npmjs.com/package/@gghnisan/react-native-maps)
 
 React Native Map components for iOS + Android
+
+## Installation
+
+See [Installation Instructions](docs/installation.md).
+
 ### Headers added (only Android)
 ```
 The following files have been modified:
@@ -10,6 +15,17 @@ The following files have been modified:
 2. lib.components.MapUrlTile.js
 2. index.d.ts
 ```
+## General Usage
+
+```js
+import MapView from '@gghnisan/react-native-maps';
+```
+or
+
+```js
+var MapView = require('@gghnisan/react-native-maps');
+```
+
 ### How to use
 For example, 
 

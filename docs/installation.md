@@ -3,8 +3,7 @@
 Install the library from npm:
 
 ```sh
-npm install react-native-maps --save-exact
-yarn add react-native-maps -E
+npm install @gghnisan/react-native-maps --save-exact
 ```
 
 The library ships with platform native code that needs to be compiled
@@ -37,7 +36,7 @@ Maps backend.
 
 ### Using React Native Link (React Native 0.59 and lower)
 
-Run `react-native link react-native-maps` after which you should be able
+Run `react-native link @gghnisan/react-native-maps` after which you should be able
 to use this library on iOS. Note that by default this will use Apple
 Maps and you will miss some of the features provided by Google (see the
 instruction on manually enabling Google Maps below).
@@ -57,7 +56,7 @@ same as project name by default).
 
 target '_YOUR_PROJECT_TARGET_' do
   rn_path = '../node_modules/react-native'
-  rn_maps_path = '../node_modules/react-native-maps'
+  rn_maps_path = '../node_modules/@gghnisan/react-native-maps'
 
   # See http://facebook.github.io/react-native/docs/integration-with-existing-apps.html#configuring-cocoapods-dependencies
   pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
@@ -86,8 +85,8 @@ target '_YOUR_PROJECT_TARGET_' do
   #pod 'GLog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
   pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
 
-  # react-native-maps dependencies
-  pod 'react-native-maps', path: rn_maps_path
+  # @gghnisan/react-native-maps dependencies
+  pod '@gghnisan/react-native-maps', path: rn_maps_path
   # pod 'react-native-google-maps', path: rn_maps_path  # Uncomment this line if you want to support GoogleMaps on iOS
   # pod 'GoogleMaps'  # Uncomment this line if you want to support GoogleMaps on iOS
   # pod 'Google-Maps-iOS-Utils' # Uncomment this line if you want to support GoogleMaps on iOS
@@ -153,13 +152,13 @@ manually](https://developers.google.com/maps/documentation/ios-sdk/start). Then,
 `REPLACE_ME_RELATIVE_PATH_TO_GOOGLE_MAPS_INSTALL` with the relative path
 from your project root to the directory in which you installed the
 Google Maps frameworks. You might need to specify a recursive search path 
-by adding a `/**` at the end of the provided path (e.g. "./node_modules/react-native-maps/enable-google-maps 'ios/my-frameworks/GoogleMaps/**'"
+by adding a `/**` at the end of the provided path (e.g. "./node_modules/@gghnisan/react-native-maps/enable-google-maps 'ios/my-frameworks/GoogleMaps/**'"
 
 ```json
 {
   "name": "your-app",
   "scripts": {
-    "postinstall": "./node_modules/react-native-maps/enable-google-maps REPLACE_ME_RELATIVE_PATH_TO_GOOGLE_MAPS_INSTALL"
+    "postinstall": "./node_modules/@gghnisan/react-native-maps/enable-google-maps REPLACE_ME_RELATIVE_PATH_TO_GOOGLE_MAPS_INSTALL"
   }
 }
 ```
@@ -169,7 +168,7 @@ Re-run `npm install` or `yarn` to ensure the `postinstall` script is run.
 c) (React Native 0.60 and higher) Add the following to your Podfile above the `use_native_modules!` function and run `pod install` in the ios folder:
   ```ruby
     # React Native Maps dependencies
-    rn_maps_path = '../node_modules/react-native-maps'
+    rn_maps_path = '../node_modules/@gghnisan/react-native-maps'
     pod 'react-native-google-maps', :path => rn_maps_path
     pod 'GoogleMaps'
     pod 'Google-Maps-iOS-Utils'
@@ -184,21 +183,21 @@ That's it, you made it! 👍
 
 Ensure your build files match the following requirements:
 
-1. (React Native 0.59 and lower) Define the `react-native-maps` project in `android/settings.gradle`:
+1. (React Native 0.59 and lower) Define the `@gghnisan/react-native-maps` project in `android/settings.gradle`:
 
 ```groovy
 ...
-include ':react-native-maps'
-project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/lib/android')
+include ':@gghnisan_react-native-maps'
+project(':@gghnisan_react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/@gghnisan/react-native-maps/lib/android')
 ```
 
-2. (React Native 0.59 and lower) Add the `react-native-maps` as an dependency of your app in `android/app/build.gradle`:
+2. (React Native 0.59 and lower) Add the `@gghnisan/react-native-maps` as an dependency of your app in `android/app/build.gradle`:
 
 ```groovy
 ...
 dependencies {
   ...
-  implementation project(':react-native-maps')
+  implementation project(':@gghnisan_react-native-maps')
 }
 ```
 
@@ -248,7 +247,7 @@ use the following instead (switch 10.0.1 for the desired version):
 ...
 dependencies {
    ...
-   implementation(project(':react-native-maps')){
+   implementation(project(':@gghnisan_react-native-maps')){
        exclude group: 'com.google.android.gms', module: 'play-services-base'
        exclude group: 'com.google.android.gms', module: 'play-services-maps'
    }
@@ -330,7 +329,7 @@ Ensure the map component and its container have viewport dimensions. An
 example is below:
 
 ```jsx
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, { PROVIDER_GOOGLE } from '@gghnisan/react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 ...
 const styles = StyleSheet.create({
  container: {
@@ -456,7 +455,7 @@ import com.airbnb.android.react.maps.MapsPackage;
         exclude group: 'com.google.android.gms'
     }
     
-   implementation(project(':react-native-maps')){
+   implementation(project(':@gghnisan_react-native-maps')){
         exclude group: 'com.google.android.gms'
     }
     implementation 'com.google.android.gms:play-services-base:12.0.1'
