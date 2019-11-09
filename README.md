@@ -18,6 +18,8 @@ For example,
 
 ## Installation
 
+## The current version of react-native-maps is compatible only with 0.60.+ react-native versions
+
 npm install @gghnisan/react-native-maps
 #####
 npm link @gghnisan/react-native-maps
